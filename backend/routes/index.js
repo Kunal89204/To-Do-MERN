@@ -43,5 +43,16 @@ router.put("/update/:id", async (req, res) => {
   }
 });
 
+// request for single task
+
+router.get('/onetask/:id', async (req, res) => {
+  try {
+    const data = await taskSchema.findById(req.params.id)
+    res.json(data)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 
 module.exports = router;
